@@ -15,7 +15,7 @@ $row= mysqli_fetch_array($result,MYSQLI_ASSOC);
 $count= mysqli_num_rows($result);
 if($count == 1)
 {
-    $_SESSION['name']=$user1;
+    $_SESSION['uname']=$user1;
     echo 1;
 }else{
     echo 0;

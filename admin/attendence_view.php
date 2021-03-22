@@ -30,7 +30,8 @@ session_start();
    
 <body class="hold-transition skin-blue sidebar-mini">
     <?php 
-        if($_SESSION['name']){
+        if($_SESSION['uname']){
+
         ?>
    <div class="modal " id="empModal">
     <div class="modal-dialog">
@@ -83,7 +84,7 @@ session_start();
             
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <?php echo $_SESSION['name'];?>
+                <?php echo $_SESSION['uname'];?>
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="logout.php">Logout</a>
@@ -98,7 +99,7 @@ session_start();
         <br><br>
         
       <div class="container-fluid">
-         <div class="row">
+       <!--  <div class="row">
                   <div class="col-md-12">
                           <div id="table-data">
                                 <div class=" form-group float-right">
@@ -111,13 +112,13 @@ session_start();
                   <p id="hide"> Working Hours :</p>
                   <p id="show"></p>
                 </div>
-            </div>
+            </div>-->
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
             
             <div class="box-body">
-              <table id="example1" class="table table-bordered">
+              <table id="example1" class="table table-bordered table-responsive" >
                 <thead>
                   <th class="hidden"></th>
                   <th>Date</th>

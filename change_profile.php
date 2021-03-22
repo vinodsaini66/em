@@ -3,29 +3,54 @@ session_start();
 ?>
 <html>
     <head>
-     <meta charset="utf-8">
+    <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
-        
          <title>Employee Management</title>
 
-  <!-- Bootstrap core CSS 
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
-
-  <!-- Custom styles for this template -->
+  
   <link href="css1/side.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  
-
- </head>
-<body class="hold-transition login-page">
+        <script>
+        $(document).ready(function(){
+            $("#myForm").on("submit",function(event){
+                event.preventDefault();
+               var data =new FormData($("#myForm")[0]);
+                //alert(npass.length);
+                
+                        $.ajax({
+                            type:"POST",
+                            url:"change_pro.php",
+                            contentType:false,
+                            processData:false,
+                            data:data,                            
+                            success: function(data)
+                            {
+                                if(data==1)
+                                    {
+                                        //window.location="index_test.php";
+                                        alert("Image Uploded!");
+                                        location.reload();
+                                    }
+                                else{
+                                    alert("Reset Error :");
+                                }
+                            }
+                        });
+                    
+            });
+        });
+        </script>
+    </head>
+    
+    <body class="hold-transition login-page">
     <?php 
         if($_SESSION['name']){
            $email=$_SESSION['name'];
@@ -81,129 +106,68 @@ session_start();
           </ul>
         </div>
       </nav>
-
+     
       <div class="container-fluid">
-         <div class="row">
-                  <div class="col-md-12">
-                          <div id="table-data">
-                               <div class="login-box">        
-  	<div class="login-box-body">
-        <br><br>
-    	<h4 class="login-box-msg text-center">Enter Employee ID</h4>
-
-    	<form id="attendance">
-            
-        <div class="row">
-            <div class="col"></div>
-            <div class="col">
-                <div class="form-group">
-                  <select class="form-control" name="status">
-                    <option value="in">Time In</option>
-                    <option value="out">Time Out</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col"></div>
-        </div><br>
-        <div class="row">
-            <div class="col"></div>
-            <div class="col">
-                <div class="form-group has-feedback">
-                    <select class="form-control" name="employee">
-                    <option value="0">-select-</option>
-                    <?php
-                      require_once "conn.php";
-                      $email=$_SESSION['name'];
-                      $sql="select * from employee where email='$email'";
-                      $rs=mysqli_query($conn,$sql);
-                      $row=mysqli_fetch_assoc($rs);
-                      echo "<option value='".$row['employee_id']."'>".$row['employee_id']."</option>";
-                    ?>
-                    </select>
-        		
-      		</div></div>
-            <div class="col"></div>
-        </div>
           
-      		
-      		<div class="row"><div class="col"></div>
-    			<div class="col">
-          			<button type="submit" id="mark" class="btn btn-primary btn-block btn-flat" name="signin"><i class="fa fa-sign-in"></i> Mark Attendence</button>
-        		</div>
-                <div class="col"></div>
-      		</div>
-    	</form>
-  	</div>
-    
-		<div class="alert alert-success alert-dismissible mt20 text-center" style="display:none;">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <span class="result"><i class="icon fa fa-check"></i> <span class="message"></span></span>
-    </div>
-		<div class="alert alert-danger alert-dismissible mt20 text-center" style="display:none;">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <span class="result"><i class="icon fa fa-warning"></i> <span class="message"></span></span>
-    </div>  		
-</div>
+         <div class="row">
+                  <div class="col-md-12"><br>
+                      
+                          <div id="table-data">
+                                          <div style="right:50px;">
+                                         <h4 class="text-success ">Change Image: </h4><br>
+                                         </div>
+                                        <div class="form-group">         
+                                            <form id="myForm" method="post" enctype="multipart/form-data">
+                                                <div class="row g-3 align-items-center">
+                                                      <div class="col-auto">
+                                                        <label for="cimg" class="col-form-label">Image:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                                      </div>
+                                                      <div class="col-auto">
+                                                        <input type="file" id="cimg" name="cimg" class="form-control" aria-describedby="passwordHelpInline" required>
+                                                      </div>
+                                                      <div class="col-auto">
+                                                        <span id="passwordHelpInline" class="form-text">
+                                                          Upload Image in jpeg ,jpg ,gif and png
+                                                        </span>
+                                                      </div>
+                                                   </div>
+                                                 <br>
+                                                
+                                                <br>
+                                             <div class="row g-3 align-items-center">
+                                                <div class="col-auto">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                                                 <div class="col-auto"><input type="submit" class="btn btn-primary btn-block" name="submit" value="Upload ">&nbsp;&nbsp;</div>
+                                                 <div class="col-auto"></div>
+                                            </div>
+
+
+                                            </form>
+
+
+                                         </div>
         
-                           </div>
+                        </div>
     </div>
   </div>
 </div>
       </div>
-      <p id="empt"></p>
     </div>
-        <script>
+      
+      <script>
     $("#menu-toggle").click(function(e) {
       e.preventDefault();
       $("#wrapper").toggleClass("toggled");
     });
-      </script>	
-
-<script type="text/javascript">
-$(function() {  
-  $('#attendance').submit(function(e){
-    e.preventDefault();
-    var attendance = new FormData($("#attendance")[0]);
-    //$( "#mark" ).prop( "disabled",true );
-    
-      //alert(attendance.get('status'));
-    $.ajax({
-      type: 'POST',
-      url: 'attendence_mt_add.php',
-      data: attendance,
-      dataType: 'json',
-        processData:false,
-        contentType:false,
-      success: function(response){
-          
-        if(response.error){
-          $('.alert').hide();
-          $('.alert-danger').show();
-          $('.message').html(response.message);
-          
-        }
-        else{
-          $('.alert').hide();
-          $('.alert-success').show();
-          $('.message').html(response.message);
-          $('#employee').val('');
-         
-          
-        }
-        
-        
-        
-      }
-    });
-  });
-    
-});
-</script>
-    <?php
+    </script>
+ 
+ <?php
         }else
         {
             header("location:index.php");
         }
-        ?>
-</body>
+?>
+    
+
+    </body>
+    
 </html>

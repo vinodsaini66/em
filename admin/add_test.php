@@ -32,7 +32,7 @@ session_start();
     </head>
    <body>
        <?php 
-        if($_SESSION['name']){
+        if($_SESSION['uname']){
         ?>
      <div class="d-flex" id="wrapper">
 
@@ -63,7 +63,7 @@ session_start();
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">            
           <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <?php echo $_SESSION['name'];?>
+                <?php echo $_SESSION['uname'];?>
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="logout.php">Logout</a>
@@ -78,84 +78,85 @@ session_start();
 
       <div class="container-fluid">
          <div class="row">
-                  <div class="col-md-12">
-                          <div id="table-data">
-                              <br>
-                              <form id="myForm" method="post" enctype="multipart/form-data">
-  <div class="row">
-    <div class="col">
-      <label>Name:</label><span id="error-name"></span>
-            <input type="text" name="name" class="form-control " id="name">
-    </div>
-    <div class="col">
-      <label>Email:</label><span id="error-email"></span>
-            <input type="email" name="email" class="form-control" id="email">
-    </div>
-  </div><br>
-    <div class="row">
-    <div class="col">
-       <label>Mobile:</label><span id="error-mobile"></span>
-            <input type="text" name="mobile" class="form-control" id="mobile">
-    </div>
-    <div class="col">
-      <label>Address:</label><span id="error-address"></span>
-            <input type="text" name="address"  class="form-control" id="address">
-    </div>
-  </div><br>
-    <div class="row">
-    <div class="col">
-      <label>Designation:</label><span id="error-post"></span>
-            <input type="text" name="post" class="form-control" id="post">
-    </div>
-    <div class="col">
-      <label>Department:</label><span id="error-salary"></span>
-         <select class="form-control" name="dept" required>
-             <option value="">-Select-</option>
-             <option value="HR">HR</option>
-             <option value="ANDROID DEVELOPMENT">ANDROID DEVELOPMENT</option>    
-             <option value="IOS DEVELOPMENT">IOS DEVELOPMENT</option>
-             <option value="WEB DEVELOPMENT">WEB DEVELOPMENT</option>
-             <option value="SALES AND MARKETING">SALES AND MARKETING</option> 
-        </select>
-            
-    </div>
-  </div><br>
-    <div class="row">
-    <div class="col">
-      <label>Joining Date:</label><span id="error-jdate"></span>
-            <input type="date" name="j_date"  class="form-control" id="j_date">
-    </div>
-    <div class="col">
-      <label>Status:</label><span id="error-status" ></span>
-        <select class="form-control" name="status" required>
-             <option value="">-Select-</option>
-             <option value="Active">Active</option>
-             <option value="Deactive">Deactive</option>      
-        </select>
-              
-    </div>
-  </div><br>
-     <div class="row">
-    <div class="col">
-      <label>Employee ID:</label><span id="error-eid"></span>
-            <input type="text" name="eid"  class="form-control" id="eid">
-    </div>
-    <div class="col">
-      <label>Schedule ID:</label><span id="error-sid"></span>
-            <input type="text" name="sid"  class="form-control" id="sid">  
-    </div>
-  </div><br>
-    <div class="row">
-    <div class="col">
-      <label>Password</label><span id="error-password"></span>
-            <input type="password" name="password"  class="form-control" id="password">
-    </div>
-    <div class="col">   
-    </div>
-  </div><br>
-    <div class="row">&nbsp;&nbsp;&nbsp;
-      <input type="submit" class="btn btn-primary " id="submit" name="submit"  value="submit">
-        
+           <div class="col-md-12">
+             <div id="table-data"> <br>
+               <form id="myForm" method="post" enctype="multipart/form-data">
+                    <div class="row">
+                      <div class="col">
+                        <label>Name:</label><span id="error-name"></span>
+                              <input type="text" name="name" class="form-control " id="name">
+                      </div>
+                      <div class="col">
+                        <label>Email:</label><span id="error-email"></span>
+                              <input type="email" name="email" class="form-control" id="email">
+                      </div>
+                    </div><br>
+                      <div class="row">
+                      <div class="col">
+                        <label>Mobile:</label><span id="error-mobile"></span>
+                              <input type="text" name="mobile" class="form-control" id="mobile">
+                      </div>
+                      <div class="col">
+                        <label>Address:</label><span id="error-address"></span>
+                              <input type="text" name="address"  class="form-control" id="address">
+                      </div>
+                    </div><br>
+                      <div class="row">
+                      <div class="col">
+                        <label>Designation:</label><span id="error-post"></span>
+                              <input type="text" name="post" class="form-control" id="post">
+                      </div>
+                      <div class="col">
+                        <label>Department:</label><span id="error-salary"></span>
+                          <select class="form-control" name="dept" required>
+                              <option value="">-Select-</option>
+                              <option value="HR">HR</option>
+                              <option value="ANDROID DEVELOPMENT">ANDROID DEVELOPMENT</option>    
+                              <option value="IOS DEVELOPMENT">IOS DEVELOPMENT</option>
+                              <option value="WEB DEVELOPMENT">WEB DEVELOPMENT</option>
+                              <option value="SALES AND MARKETING">SALES AND MARKETING</option> 
+                          </select>
+                              
+                      </div>
+                    </div><br>
+                      <div class="row">
+                      <div class="col">
+                        <label>Joining Date:</label><span id="error-jdate"></span>
+                              <input type="date" name="j_date"  class="form-control" id="j_date">
+                      </div>
+                      <div class="col">
+                        <label>Status:</label><span id="error-status" ></span>
+                          <select class="form-control" name="status" required>
+                              <option value="">-Select-</option>
+                              <option value="Active">Active</option>
+                              <option value="Deactive">Deactive</option>      
+                          </select>
+                                
+                      </div>
+                    </div><br>
+                      <div class="row">
+                      <div class="col">
+                        <label>Employee ID:</label><span id="error-eid"></span>
+                              <input type="text" name="eid"  class="form-control" id="eid">
+                      </div>
+                      <div class="col">
+                        <label>Schedule ID:</label><span id="error-sid"></span>
+                              <input type="text" name="sid"  class="form-control" id="sid">  
+                      </div>
+                    </div><br>
+                      <div class="row">
+                      <div class="col">
+                        <label>Password</label><span id="error-password"></span>
+                              <input type="password" name="password"  class="form-control" id="password">
+                      </div>
+                      <div class="col"> 
+                      <label>Image</label><span id="error-img"></span>
+                              <input type="file" name="img"  class="form-control" id="img">  
+                      </div>
+                    </div><br>
+                      <div class="row">&nbsp;&nbsp;&nbsp;
+                        <input type="submit" class="btn btn-primary " id="submit" name="submit"  value="submit">
+                          
   </div>
 </form>
  </div>
@@ -170,12 +171,17 @@ session_start();
       e.preventDefault();
       $("#wrapper").toggleClass("toggled");
     });
-     $(document).ready(function(){ 
+     $(document).ready(function(){
+       
         $("#myForm").validate({        
           rules: {
             name:"required",
             eid:"required",
             sid:"required",
+            img: {
+              required: true,
+              
+            },
             password: {
                          required: true,
                          minlength: 3

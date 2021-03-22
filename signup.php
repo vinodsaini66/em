@@ -86,7 +86,9 @@
       <label>Schedule ID:</label><span id="error-sid"></span>
             <input type="text" name="sid"  class="form-control" id="sid">
     </div>
-    <div class="col"></div>
+    <div class="col">
+    <label>Image:</label><span id="error-sid"></span>
+            <input type="file" name="img"  class="form-control" id="img"></div>
   </div>
    <br>
       
@@ -95,14 +97,14 @@
         <div class="col"></div>
         <div class="col"></div>-->
         <input type="submit" class="btn btn-primary btn-block " id="submit" name="submit"  value="submit">
-      
+         
         
   </div>
 </form>
          <div class="row">
          <a href="index.php" class="btn btn-primary btn-block">Login</a>
          </div>
-
+       <p id="empt"></p>
     </div>
  
         <script>
@@ -112,6 +114,9 @@
             name:"required",
             eid:"required",
             sid:"required",
+            img: {
+              required: true,
+            },
             password:{
                 required:true,
                 minlength:5
@@ -154,10 +159,21 @@
                     data: data1,
                     contentType:false,
                     processData:false,
-                    success: function(data){
+                    success: function(data)
+                    {
                         if(data==1){
-                            window.location="index.php";
+                          alert("Successfully Register ");
+                          $("#empt").delay(3000).show(0);
+                          window.location="index.php";
                         }
+                        else{
+                          alert("Email Already Register ");
+                          $("#empt").delay(3000).show(0);
+                          $("#myForm")[0].reset();
+                        }
+                        
+                         
+                        
                        } 
                 }); 
                 return false; 

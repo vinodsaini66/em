@@ -1,6 +1,6 @@
     <?php
    session_start();
-if($_SESSION['name']){
+if($_SESSION['uname']){
     
         
         require_once('config.php');
@@ -22,7 +22,7 @@ if($_SESSION['name']){
 
 	if (mysqli_num_rows($result) > 0) {
 
-	$output.="<table class='table table-light table-bordered border-secondary w-auto small table-striped'>
+	$output.="<table class='table table-light table-bordered border-secondary table-responsive w-auto small table-striped'>
 		    <thead >
 		        <tr>
                       <th>Employee ID</th>
