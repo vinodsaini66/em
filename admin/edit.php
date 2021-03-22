@@ -118,85 +118,80 @@
                   <div class="col-md-12">
                           <div id="table-data">
                                <form id="myForm" method="post" enctype="multipart/form-data" action="<?php echo $_SERVER['PHP_SELF'];?>">
-      <div class="row">
-        <div class="col">
-          <label>Name:</label><span id="error-name"></span>
-                <input type="text" name="name" class="form-control " id="name" value="<?php echo $name;?>">
-        </div>
-        <div class="col">
-          <label>Email:</label><span id="error-email"></span>
-                <input type="email" name="email" class="form-control" id="email" value="<?php echo $email;?>">
-        </div>
-      </div><br>
-        <div class="row">
-        <div class="col">
-           <label>Mobile:</label><span id="error-mobile"></span>
-                <input type="text" name="mobile" class="form-control" id="mobile" value="<?php echo $mobile;?>">
-        </div>
-        <div class="col">
-          <label>Address:</label><span id="error-address"></span>
-                <input type="text" name="address"  class="form-control" id="address" value="<?php echo $address;?>">
-        </div>
-      </div><br>
-        <div class="row">
-        <div class="col">
-          <label>Designation:</label><span id="error-post"></span>
-                <input type="text" name="post" class="form-control" id="post" value="<?php echo $job_name;?>">
-        </div>
-        <div class="col">
-          <label>Department:</label><span id="error-salary"></span>
-            <select class="form-control" name="dept" required>
-             <option value="<?php echo $dept;?>"><?php echo $dept;?></option>
-             <option value="HR">HR</option>
-             <option value="ANDROID DEVELOPMENT">ANDROID DEVELOPMENT</option>    
-             <option value="IOS DEVELOPMENT">IOS DEVELOPMENT</option>
-             <option value="WEB DEVELOPMENT">WEB DEVELOPMENT</option>
-             <option value="SALES AND MARKETING">SALES AND MARKETING</option> 
-        </select>
-                
-        </div>
-      </div><br>
-        <div class="row">
-        <div class="col">
-          <label>Joining Date:</label><span id="error-jdate"></span>
-                <input type="date" name="j_date"  class="form-control" id="j_date" value="<?php echo $j_date;?>">
-        </div>
-        <div class="col">
-          <label>Status:</label><span id="error-status"></span>
-            <select class="form-control" name="status" required>
-             <option value="<?php echo $status;?>"><?php echo $status;?></option>
-             <option value="Active">Active</option>
-             <option value="Deactive">Deactive</option>      
-        </select>
-        </div>
-      </div><br>
-          <div class="row">
-        <div class="col">
-          <label>Employee ID:</label><span id="error-eid"></span>
-                <input type="text" name="eid"  class="form-control" id="eid" value="<?php echo $eid;?>">
-        </div>
-        <div class="col">
-          <label>Schedule ID:</label><span id="error-sid"></span>
-                <input type="text" name="sid"  class="form-control" id="sid" value="<?php echo $sid;?>">  
-        </div>
-      </div><br>
-        <div class="row">
-         &nbsp;&nbsp;&nbsp; <input type="submit" class="btn btn-primary" id="submit" name="submit"  value="submit" >
-      </div>
-    </form>
+                                  <div class="row">
+                                    <div class="col">
+                                      <label>Name:</label><span id="error-name"></span>
+                                            <input type="text" name="name" class="form-control " id="name" value="<?php echo $name;?>">
+                                    </div>
+                                    <div class="col">
+                                      <label>Email:</label><span id="error-email"></span>
+                                            <input type="email" name="email" class="form-control" id="email" value="<?php echo $email;?>">
+                                    </div>
+                                  </div><br>
+                                    <div class="row">
+                                    <div class="col">
+                                      <label>Mobile:</label><span id="error-mobile"></span>
+                                            <input type="text" name="mobile" class="form-control" id="mobile" value="<?php echo $mobile;?>">
+                                    </div>
+                                    <div class="col">
+                                      <label>Address:</label><span id="error-address"></span>
+                                            <input type="text" name="address"  class="form-control" id="address" value="<?php echo $address;?>">
+                                    </div>
+                                  </div><br>
+                                    <div class="row">
+                                    <div class="col">
+                                      <label>Designation:</label><span id="error-post"></span>
+                                            <input type="text" name="post" class="form-control" id="post" value="<?php echo $job_name;?>">
+                                    </div>
+                                    <div class="col">
+                                      <label>Department:</label><span id="error-salary"></span>
+                                        <select class="form-control" name="dept" required>
+                                        <option value="<?php echo $dept;?>"><?php echo $dept;?></option>
+                                        <option value="HR">HR</option>
+                                        <option value="ANDROID DEVELOPMENT">ANDROID DEVELOPMENT</option>    
+                                        <option value="IOS DEVELOPMENT">IOS DEVELOPMENT</option>
+                                        <option value="WEB DEVELOPMENT">WEB DEVELOPMENT</option>
+                                        <option value="SALES AND MARKETING">SALES AND MARKETING</option> 
+                                    </select>
+                                            
+                                    </div>
+                                  </div><br>
+                                    <div class="row">
+                                    <div class="col">
+                                      <label>Joining Date:</label><span id="error-jdate"></span>
+                                            <input type="date" name="j_date"  class="form-control" id="j_date" value="<?php echo $j_date;?>">
+                                    </div>
+                                    <div class="col">
+                                      <label>Status:</label><span id="error-status"></span>
+                                        <select class="form-control" name="status" required>
+                                        <option value="<?php echo $status;?>"><?php echo $status;?></option>
+                                        <option value="Active">Active</option>
+                                        <option value="Deactive">Deactive</option>      
+                                    </select>
+                                    </div>
+                                  </div><br>
+                                      <div class="row">
+                                    <div class="col">
+                                      <label>Employee ID:</label><span id="error-eid"></span>
+                                            <input type="text" name="eid"  class="form-control" id="eid" value="<?php echo $eid;?>">
+                                    </div>
+                                    <div class="col">
+                                      <label>Schedule ID:</label><span id="error-sid"></span>
+                                            <input type="text" name="sid"  class="form-control" id="sid" value="<?php echo $sid;?>">  
+                                    </div>
+                                  </div><br>
+                                    <div class="row">
+                                    &nbsp;&nbsp;&nbsp; <input type="submit" class="btn btn-primary" id="submit" name="submit"  value="submit" >
+                                  </div>
+                            </form>
         
                            </div>
-    </div>
-  </div>
-</div>
+                       </div>
+                </div>
+          </div>
       </div>
-    </div>
-        <script>
-    $("#menu-toggle").click(function(e) {
-      e.preventDefault();
-      $("#wrapper").toggleClass("toggled");
-    });
-      </script>          
+   </div>
+              
 
     <?php
 
@@ -232,12 +227,54 @@
             }
 
     ?>
+                   
            <script>
-           $(document).ready(function({
-               $("#alert").hide();
-               
-           }))
+
+           $(document).ready(function(){ 
+            $("#myForm").validate({        
+            rules: {
+                    name:"required",
+                    eid:"required",
+                    sid:"required",
+                    status: {
+                            required: true,                    
+                    },
+                    j_date:"required",
+                    address:"required",
+                    dept:"required",
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    mobile: {
+                        required: true,                
+                    },
+                    post:{
+                        required: true,
+                    }
+                },
+           message: {
+                name: "Please enter your Name",
+                salary:"Please enter your salary",
+                j_date:"Please enter your joining date",
+                email:"please enter a valid email address",
+                mobile: "please enter your mobile",
+                post:"Please enter your post",
+                status:"Please enter your status",
+                address:"Please enter your address"
+                },
+           submitHandler: function(form){      
+              form.submit();
+             }        
+    });
+           });
            </script>
+             <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+      </script>  
         <?php
             }else
             {

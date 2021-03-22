@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-
 function decimal_to_time($decimal) {
     $decimal=$decimal*60;
     $hours = floor($decimal / 60);

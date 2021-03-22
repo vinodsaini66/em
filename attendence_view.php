@@ -91,6 +91,8 @@ session_start();
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="logout.php">Logout</a>
+                <a class="dropdown-item" href="change_pass.php">Change Password</a>
+             
                <!-- <a class="dropdown-item" href="#">Another action</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Something else here</a>-->
@@ -105,17 +107,7 @@ session_start();
          <div class="row">
                   <div class="col-md-12">
                           <div id="table-data">
-                                <div class=" form-group float-right">
-                <form id="myForm">
-                    <input class="form-control" type="text" name="eid" id="eid" placeholder="Enter Employee ID"><br>
-                    <input class="form-control" type="date" name="date" id="date"><br>
-                    <input type="submit" id="submit" class=" form-control btn btn-primary" name="submit">
-                </form>
-              <div>
-                  <p id="hide"> Working Hours :</p>
-                  <p id="show"></p>
-                </div>
-            </div>
+                              
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
@@ -135,7 +127,7 @@ session_start();
                   <?php
                     require_once "conn.php";
                     $email=$_SESSION['name'];
-                    $sql = "SELECT *, employee.employee_id AS empid, attendance.id AS attid FROM attendance LEFT JOIN employee ON employee.id=attendance.employee_id where employee.email='$email' ORDER BY attendance.date DESC, attendance.time_in DESC";
+                    $sql = "SELECT *, employee.employee_id AS empid, attendance.id AS attid FROM attendance LEFT JOIN employee ON employee.id=attendance.employee_id where employee.email='$email' ORDER BY attendance.date DESC, attendance.time_in ASC";
                     $query = $conn->query($sql);
                     $prvID=array("hello");
                     $prvDate=array("h1");
@@ -193,23 +185,21 @@ session_start();
     <script>
   $(document).ready(function(){
 
-$('.userinfo').click(function(){
+   $('.userinfo').click(function(){
   
-  var userid = $(this).data('id');
-  var date = $(this).data('date');
+    var userid = $(this).data('id');
+    var date = $(this).data('date');
+    // AJAX request
+    $.ajax({
+    url: 'pop_up.php',
+    type: 'post',
+    data: {userid: userid,date: date},
+    success: function(response){ 
+      // Add response in Modal body
+      $('.modal-body').html(response);
 
-
-  // AJAX request
-  $.ajax({
-   url: 'pop_up.php',
-   type: 'post',
-   data: {userid: userid,date: date},
-   success: function(response){ 
-     // Add response in Modal body
-     $('.modal-body').html(response);
-
-     // Display Modal
-     $('#empModal').modal('show'); 
+      // Display Modal
+      $('#empModal').modal('show'); 
    }
  });
 });

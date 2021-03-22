@@ -25,6 +25,10 @@
                 if($rowA['time_out']=="00:00:00"){
 					$output['error'] = true;
 					$output['message'] = 'You have timed in for today';
+				}elseif(date('H:i:s')>"21:00:00")
+				{
+					$output['error'] = true;
+					$output['message'] = 'You are late no timed in for today';
 				}
 				else{
 					//updates

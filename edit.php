@@ -103,6 +103,8 @@
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="logout.php">Logout</a>
+                <a class="dropdown-item" href="change_pass.php">Change Password</a>
+             
                <!-- <a class="dropdown-item" href="#">Another action</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Something else here</a>-->
@@ -137,54 +139,13 @@
                 <input type="text" name="address"  class="form-control" id="address" value="<?php echo $address;?>">
         </div>
       </div><br>
-        <div class="row">
-        <div class="col">
-          <label>Designation:</label><span id="error-post"></span>
-                <input type="text" name="post" class="form-control" id="post" value="<?php echo $job_name;?>">
-        </div>
-        <div class="col">
-          <label>Department:</label><span id="error-salary"></span>
-            <select class="form-control" name="dept" required>
-             <option value="<?php echo $dept;?>"><?php echo $dept;?></option>
-             <option value="HR">HR</option>
-             <option value="ANDROID DEVELOPMENT">ANDROID DEVELOPMENT</option>    
-             <option value="IOS DEVELOPMENT">IOS DEVELOPMENT</option>
-             <option value="WEB DEVELOPMENT">WEB DEVELOPMENT</option>
-             <option value="SALES AND MARKETING">SALES AND MARKETING</option> 
-        </select>
-                
-        </div>
-      </div><br>
-        <div class="row">
-        <div class="col">
-          <label>Joining Date:</label><span id="error-jdate"></span>
-                <input type="date" name="j_date"  class="form-control" id="j_date" value="<?php echo $j_date;?>">
-        </div>
-        <div class="col">
-          <label>Status:</label><span id="error-status"></span>
-            <select class="form-control" name="status" required>
-             <option value="<?php echo $status;?>"><?php echo $status;?></option>
-             <option value="Active">Active</option>
-             <option value="Deactive">Deactive</option>      
-        </select>
-        </div>
-      </div><br>
-          <div class="row">
-        <div class="col">
-          <label>Employee ID:</label><span id="error-eid"></span>
-                <input type="text" name="eid"  class="form-control" id="eid" value="<?php echo $eid;?>">
-        </div>
-        <div class="col">
-          <label>Schedule ID:</label><span id="error-sid"></span>
-                <input type="text" name="sid"  class="form-control" id="sid" value="<?php echo $sid;?>">  
-        </div>
-      </div><br>
+         <br>
         <div class="row">
          &nbsp;&nbsp;&nbsp; <input type="submit" class="btn btn-primary" id="submit" name="submit"  value="submit" >
       </div>
     </form>
         
-                           </div>
+      </div>
     </div>
   </div>
 </div>
@@ -195,7 +156,26 @@
       e.preventDefault();
       $("#wrapper").toggleClass("toggled");
     });
-      </script>          
+      </script>    
+      <script>
+      $(document).ready(function(){
+        $("#myForm").submit(function(e) {
+          e.preventDefault();
+          var data=new FormData($("#myForm")[0]);
+          $.ajax({
+            type: "post",
+            url: "edit_data.php",
+            data: data,
+            contentType:false,
+            processData:false,
+            success: function (response) {
+              alert(response);
+            }
+          });
+          
+        })
+      })
+      </script>      
 
     <?php
 

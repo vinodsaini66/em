@@ -65,6 +65,7 @@ session_start();
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="logout.php">Logout</a>
+                <a class="dropdown-item" href="change_pass.php">Change Password</a>
                <!-- <a class="dropdown-item" href="#">Another action</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Something else here</a>-->
@@ -80,7 +81,7 @@ session_start();
                           <div id="table-data">
                                <div class="login-box">        
   	<div class="login-box-body">
-        <br>
+        <br><br>
     	<h4 class="login-box-msg text-center">Enter Employee ID</h4>
 
     	<form id="attendance">
